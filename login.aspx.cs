@@ -8,8 +8,7 @@ using System.Collections;
 using System.Data.SqlClient;
 public partial class login : System.Web.UI.Page
 {
-     int uid ;
-
+     int userid ;
     protected void Page_Load(object sender, EventArgs e)
     {
       conn = new SqlConnection("server=LUSHAN-PC\\SQLEXPRESS;database=part-time-job;uid=sa;pwd=1995217ls");
@@ -31,46 +30,18 @@ public partial class login : System.Web.UI.Page
             {
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand("select * from userlist where uname='" + txtName.Text.Trim() + "' and upsw='" + txtPass.Text.Trim() + "'", conn);
+                SqlCommand cmd = new SqlCommand("select * from login where name='" + txtName.Text.Trim() + "' and password='" + txtPass.Text.Trim() + "'", conn);
                 SqlDataReader sdr = cmd.ExecuteReader();
                 if (sdr.Read())
                 {
                     sdr.Close();
                    
-                   SqlCommand  cmd1 = new SqlCommand("select uid from userlist where uname='" + txtName.Text.Trim() + "' and upsw='" + txtPass.Text.Trim() + "'", conn);
-                    uid = (int)cmd1.ExecuteScalar();
+                   SqlCommand  cmd1 = new SqlCommand("select login_id from login where name='" + txtName.Text.Trim() + "' and password='" + txtPass.Text.Trim() + "'", conn);
+                    userid = (int)cmd1.ExecuteScalar();
                     conn.Close();
                    // Lable1.Text = userid.ToString();
-                    Session["userid"] = uid ;
-                    Session["uname"] = txtName.Text.Trim();
-                    
-                    if(Session["aa"]=="1")//zhiwei
-                    {
-                        Response.Redirect("~/position.aspx");
-                    }
-                    if(Session["bb"]=="2")
-                    {
-                        Response.Redirect("~/search.aspx");
-                    }
-                   if (Session["cc"]=="3")
-                   {
-                       Response.Redirect("~/CompusRecruitment.aspx");
-                      
-                   }
-                    if(Session["dd"]=="4")
-                    {
-                        Response.Redirect("~/findjjob.aspx");
-                    }
-                    if(Session["ee"]=="5")
-                    {
-                        Response.Redirect("~/findqjob.aspx");
-                    }
-                    if(Session["ff"]=="6")
-                    {
-                        Response.Redirect("~/result.aspx");
-                    }
-                    else
-                    Response.Redirect("~/homePage.aspx");
+                    Session["userid"] = userid ;
+                    Response.Redirect("~/personal_center.aspx");
                 }
                 else
                     Lable1.Text = "用户名或密码错误！";
