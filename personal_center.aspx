@@ -30,7 +30,7 @@
     <form id="form1" runat="server">
     <div style="width:100%">
         <asp:ImageButton ID="ImageButton1" runat="server" Height="55px" Width="153px" ImageUrl="~/img/percenter.jpg" OnClick="ImageButton1_Click" />
-        <asp:Label ID="Lable1" runat="server" Text="个人中心" Font-Size="XX-Large"></asp:Label>
+        <asp:Label ID="Ltitle" runat="server" Text="个人中心" Font-Size="XX-Large"></asp:Label>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/ceshi.aspx">首页</asp:LinkButton>     
     <hr />
@@ -45,16 +45,12 @@
                         <asp:Button ID="btnresume" runat="server" Text="个人简历" OnClick="btnresume_Click" BackColor="White" BorderStyle="None" Font-Size="Large" />
                         <br />
                         <br />
-                        <asp:Button ID="btnpublish" runat="server" Text="我的发布" OnClick="btnpublish_Click" BackColor="White" BorderStyle="None" Font-Size="Large" />
-                        <br />
-                        <br />
                         <asp:Button ID="btncollection" runat="server" Text="我的收藏" OnClick="btncollection_Click" BackColor="White" BorderStyle="None" Font-Size="Large" />
                         <br />
                         <br />
                         <asp:Button ID="btnfindjob" runat="server" Text="我的求职" OnClick="btnfindjob_Click" BackColor="White" BorderStyle="None" Font-Size="Large" />
                         <br />
                         <br />
-                        <asp:Button ID="btnemploy" runat="server" Text="我的招聘" OnClick="btnemploy_Click" BackColor="White" BorderStyle="None" Font-Size="Large" />
                     </td>
                     <td class="auto-style1">
                         <asp:Panel ID="pan_information" runat="server">
@@ -93,6 +89,7 @@
                             </div>
                            <div >
                                <asp:Label ID="Label1" runat="server"></asp:Label>
+                               <asp:Label ID="Label3" runat="server"></asp:Label>
                                <br />
                                <br />
                                <br />
@@ -116,11 +113,11 @@
                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style5">*</span>姓名：<asp:TextBox ID="txtrealname" runat="server" Font-Size="Medium" Width="377px"></asp:TextBox>
                              <br />
                              <br />
-                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 性别：<asp:DropDownList ID="ddSex" runat="server" Font-Size="Medium">
+                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style5">*</span>性别：<asp:DropDownList ID="ddSex" runat="server" Font-Size="Medium">
                                  <asp:ListItem Value="man">男</asp:ListItem>
                                  <asp:ListItem Value="women">女</asp:ListItem>
                              </asp:DropDownList>
-                             &nbsp;&nbsp; 出生年月：<asp:DropDownList ID="ddlYear" runat="server" AutoPostBack="true" Font-Size="Medium">
+                             &nbsp;&nbsp;<span class="auto-style5">*</span>出生年月：<asp:DropDownList ID="ddlYear" runat="server" AutoPostBack="true" Font-Size="Medium">
                              </asp:DropDownList>
                              &nbsp;年 
                              <asp:DropDownList ID="ddlMonth" runat="server" AutoPostBack="true" Font-Size="Medium">
@@ -177,26 +174,72 @@
                                  </div>
                                  &nbsp;<asp:TextBox ID="txtDescribe" runat="server" Font-Size="Medium" Height="115px" TextMode="MultiLine" Width="386px"></asp:TextBox>
                              </div>
-                             &nbsp;&nbsp;
-                            <br />
-                            <br />
-                            <br />
+                             &nbsp;<asp:Label ID="Label4" runat="server"></asp:Label>
+                             <asp:Label ID="Label5" runat="server"></asp:Label>
+&nbsp;
+                             <br />
+                             <br />
+                             <br />
                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:Button ID="btnPublishresume" runat="server" Font-Size="Medium" OnClick="btnPublishresume_Click" Text="立即发布" />
+                             &nbsp;<asp:Button ID="btnAresume" runat="server" Font-Size="Medium" OnClick="btnAresume_Click" Text="修改" />
                         </asp:Panel>
-                        <asp:Panel ID="pan_publish" runat="server" Wrap="False">
-                                        
-                                    </asp:Panel>
+                      
                         <asp:Panel ID="pan_collection" runat="server" Wrap="False">
-                                           
-                                        </asp:Panel>
+                            
+
+                            
+                            &nbsp;&nbsp;&nbsp;<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" GridLines="None" Height="121px" OnRowDataBound="GridView1_RowDataBound" PageSize="6" ShowHeader="False" Width="452px" OnRowDeleting="GridView1_RowDeleting" Font-Size="Medium" >
+                                <Columns>
+                                    <asp:HyperLinkField DataNavigateUrlFields="pos_id" DataNavigateUrlFormatString="~/show.aspx?id={0}" DataTextField="pos_name" DataTextFormatString="·{0}" HeaderText="pos_name">
+                                    <ItemStyle Font-Overline="false" HorizontalAlign="Left" />
+                                    </asp:HyperLinkField>
+                                    <asp:BoundField DataField="com_name" HeaderText="com_name" />
+                                    <asp:BoundField DataField="time" DataFormatString="{0:d}" HeaderText="time" />
+                                    
+                                    <asp:CommandField HeaderText="删除" ShowDeleteButton="true" />
+                                </Columns>
+                            </asp:GridView>
+                            <br />
+                            当前页码为：[<asp:Label ID="LabelPage" runat="server" Text="1"></asp:Label>
+                            ]&nbsp;总页码为：[<asp:Label ID="LabelTotalPage" runat="server" Text=""></asp:Label>
+                            ]
+                            <asp:LinkButton ID="LinkButtonFirst" runat="server" OnClick="LinkButtonFirst_Click">首页</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton ID="LinkButtonPrev" runat="server" OnClick="LinkButtonPrev_Click">上一页</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton ID="LinkButtonNext" runat="server" OnClick="LinkButtonNext_Click">下一页</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton ID="LinkButtonLast" runat="server" OnClick="LinkButtonLast_Click">末页</asp:LinkButton>
+                    
+                                </asp:Panel>
                          <asp:Panel ID="pan_findjob" runat="server" Visible="False">
-                                                
+                                                  
+                            &nbsp;&nbsp;&nbsp;<asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" GridLines="None" Height="121px" OnRowDataBound="GridView2_RowDataBound" PageSize="6" ShowHeader="False" Width="452px" OnRowDeleting="GridView2_RowDeleting" Font-Size="Medium">
+                                <Columns>
+                                    <asp:HyperLinkField DataNavigateUrlFields="pos_id" DataNavigateUrlFormatString="~/show.aspx?id={0}" DataTextField="pos_name" DataTextFormatString="·{0}" HeaderText="pos_name">
+                                    <ItemStyle Font-Overline="false" HorizontalAlign="Left" />
+                                    </asp:HyperLinkField>
+                                    <asp:BoundField DataField="com_name" HeaderText="com_name" />
+                                    <asp:BoundField DataField="time" DataFormatString="{0:d}" HeaderText="time" />
+                                    
+                                    <asp:CommandField HeaderText="删除" ShowDeleteButton="true" />
+                                </Columns>
+                            </asp:GridView>
+                            <br />
+                            当前页码为：[<asp:Label ID="LabelPage1" runat="server" Text="1"></asp:Label>
+                            ]&nbsp;总页码为：[<asp:Label ID="LabelTotalPage1" runat="server" Text=""></asp:Label>
+                            ]
+                            <asp:LinkButton ID="LinkButtonFirst1" runat="server" OnClick="LinkButtonFirst1_Click">首页</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton ID="LinkButtonPrev1" runat="server" OnClick="LinkButtonPrev1_Click">上一页</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton ID="LinkButtonNext1" runat="server" OnClick="LinkButtonNext1_Click">下一页</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton ID="LinkButtonLast1" runat="server" OnClick="LinkButtonLast1_Click">末页</asp:LinkButton>
+                        
                                             </asp:Panel>
-                        <asp:Panel ID="pan_employ" runat="server" Visible="False">
-                                                    aaaa
-                                                   <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-                                                </asp:Panel>
+                        
                         
                     </td>
                 </tr>

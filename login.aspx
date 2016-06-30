@@ -16,7 +16,7 @@
            
             <tr>
                 <td style="text-align:center">&nbsp;</td>
-                <td style="text-align:center" p>
+                <td style="text-align:center">
 
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 登录<br />
                     <br />
@@ -40,9 +40,9 @@
 
                     <br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:LinkButton ID="Linkregister" runat="server" PostBackUrl="~/ceshi.aspx">我还没注册！</asp:LinkButton>
+                    <asp:LinkButton ID="Linkregister" runat="server" PostBackUrl="~/register.aspx">我还没注册！</asp:LinkButton>
                     &nbsp;&nbsp;
-                    <asp:LinkButton ID="Linkpass" runat="server" PostBackUrl="~/ceshi.aspx">忘记密码？</asp:LinkButton>
+                    <asp:LinkButton ID="Linkpass" runat="server" PostBackUrl="~/findpsw.aspx">忘记密码？</asp:LinkButton>
 
                     <br />
                     <br />
